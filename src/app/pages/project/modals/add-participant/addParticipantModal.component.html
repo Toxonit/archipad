@@ -1,0 +1,93 @@
+<mat-dialog class="dialog_grid_container">
+	<div class="dialog_header">
+		<div class="dialog_header_title">Partager votre projet</div>
+	</div>
+	<div class="dialog_content">
+		<form (ngSubmit)="validate()" class="dialog_content_form" [formGroup]="formParticipant">
+
+			<!---------------------------------- Privilège ---------------------------------->
+			<mat-form-field appearance="fill" class="privilege">
+				<input matInput [hidden]="true"  name="role">
+				<mat-label>Privilège d'accès pour ce projet</mat-label>
+				<mat-select matInput name="role" #roleSelected [(ngModel)]="participantRole" formControlName="role" required="true">
+					<mat-option value="" selected></mat-option>
+					<mat-option *ngFor="let role of data.role" [value]="role.value">
+						{{role.view}}
+					</mat-option>
+				</mat-select>
+				<mat-hint align="start">Peut poser et lever des réserves, éditer les remarques et générer et partager des rapports. Ne peut pas modifier les données du projet telles que les contacts ou les plans</mat-hint>
+			</mat-form-field>
+			<div class="clear"></div>
+
+			<!---------------------------------- Statut ---------------------------------->
+			<mat-form-field appearance="fill">
+				<input matInput [hidden]="true"  name="statut">
+				<mat-label>Statut</mat-label>
+				<mat-select matInput name="statut" #statutSelected  [(ngModel)]="participantStatut" formControlName="statut" required="true">
+				  	<mat-option value="" selected></mat-option>
+				  	<mat-option *ngFor="let state of data.state" [value]="state.value">
+						{{state.view}}
+				  </mat-option>
+				</mat-select>
+			</mat-form-field>
+			<div class="clear"></div>
+
+			<!---------------------------------- Nom ---------------------------------->
+			<mat-form-field class="half half_margin" appearance="fill">
+				<mat-label>Nom</mat-label>
+				<input matInput name="name" [(ngModel)]="participantName" formControlName="name" required="true" autocomplete="off" autocapitalize="none" autocorrect="off"  >
+				<mat-error *ngIf="this.formParticipant.controls['company'].errors">
+					Merci de renseigner un nom
+				</mat-error>
+			</mat-form-field>
+
+			<!---------------------------------- Société ---------------------------------->
+			<mat-form-field class="half" appearance="fill">
+				<mat-label>Société</mat-label>
+				<input matInput  name="company" [(ngModel)]="participantCompany" formControlName="company" required="true" autocomplete="off" autocapitalize="none" autocorrect="off"  >
+				<mat-error *ngIf="this.formParticipant.controls['company'].errors">
+					Merci de renseigner une Société
+				</mat-error>
+			</mat-form-field>
+			<div class="clear"></div>
+
+			<!---------------------------------- Adresse ---------------------------------->
+			<mat-form-field class="adress" appearance="fill">
+				<mat-label>Adresse</mat-label>
+				<input matInput type="" name="adress" [(ngModel)]="participantAdress" formControlName="adress" required="true" autocomplete="off" autocapitalize="none" autocorrect="off"  >
+				<mat-error *ngIf="this.formParticipant.controls['adress'].errors">
+					Merci de renseigner une adresse
+				</mat-error>
+			</mat-form-field>
+			<div class="clear"></div>
+
+			<!---------------------------------- Email ---------------------------------->
+			<mat-form-field class="" appearance="fill">
+				<mat-label>Email</mat-label>
+				<input matInput type="email" name="email" [(ngModel)]="participantEmail" formControlName="email" required="true" autocomplete="off" autocapitalize="none" autocorrect="off" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}(#[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})?" >
+				<mat-error *ngIf="this.formParticipant.controls['email'].errors">
+					Merci d'entrer une adresse email valide
+				</mat-error>
+				<div class="mat_error" *ngIf="this.isMailFree(participantEmail) === false">
+					Adresse mail déjà utilisée
+				</div>
+			</mat-form-field>
+			<div class="clear"></div>
+
+		</form>
+	</div>
+
+	<div class="dialog_footer">
+		<div class="dialog_footer_cancel_button">
+			<button mat-button (click)="cancel()">Annuler</button>
+		</div>
+		<div class="dialog_footer_valid_button">
+			<button mat-button [disabled]="!canValidateModal()" (click)="validate()">Inviter</button>
+		</div>
+	</div>
+</mat-dialog>
+
+
+
+
+

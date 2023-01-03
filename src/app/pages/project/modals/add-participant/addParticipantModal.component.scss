@@ -1,0 +1,127 @@
+.mat-dialog-container 
+{
+    padding: 16px;
+}
+
+.dialog_grid_container
+{
+
+	display:				grid;
+	grid-template-columns:	auto;
+	grid-template-rows:		45px auto 45px;
+	grid-template-areas:	"header"
+							"main"
+							"footer";
+
+	overflow:				hidden;
+	height: 				100%;
+	overflow:				hidden;
+
+	.dialog_header
+	{
+		grid-area:					header;
+		position:					relative;
+
+		.dialog_header_title
+		{
+			font-size:		16px;
+			font-weight:	400;
+		}
+
+		.dialog_header_close
+		{
+			float:		right;
+			position:	absolute;
+			right:		10px;
+			top:		10px;
+			cursor:		pointer;
+		}
+	}
+
+	.dialog_content
+	{
+		padding:			26px;
+		overflow:			auto;
+		grid-area:			main;
+
+
+
+		.mat-select-value-text 
+		{
+			position: 	relative;
+			top: 		5px;
+		}
+		.mat-hint 
+		{
+			font-size: 12px;
+		}
+		.mat-form-field-appearance-fill .mat-form-field-infix 
+		{
+			height: 23px;
+		}
+		.mat-select 
+		{
+			height: 	25px;
+			position: 	relative;
+			top: 		4px;
+		}
+		.mat-select-value 
+		{
+			height: 23px;
+		}
+
+		.mat-form-field
+		{
+			width: 100% !important;
+		}
+		.mat-form-field.half
+		{
+			width: 48% !important;
+		}
+		.mat-form-field.half.half_margin
+		{
+			margin-right: 4%;
+		}
+		.mat-form-field.adress,
+		.mat-form-field.privilege
+		{
+			margin-bottom: 40px;
+		}
+		.mat_error
+		{
+			color: 		#f44336;
+			font-size: 	75%;
+			position: 	relative;
+			top: 		10px;
+		}
+	}
+
+	.dialog_footer
+	{
+		grid-area:					footer;
+		display:					-ms-flexbox;
+		display:					-webkit-flex;
+		display:					flex;
+		-webkit-flex-direction:		row;
+		-ms-flex-direction:			row;
+		flex-direction:				row;
+		-webkit-flex-wrap:			wrap;
+		-ms-flex-wrap:				wrap;
+		flex-wrap:					wrap;
+		-webkit-justify-content:	flex-end;
+		-ms-flex-pack:				end;
+		justify-content:			flex-end;
+		-webkit-align-content:		stretch;
+		-ms-flex-line-pack:			stretch;
+		align-content:				stretch;
+		-webkit-align-items:		center;
+		-ms-flex-align:				center;
+		align-items:				center;
+
+		button
+		{
+			color: 			#2187E5;
+			font-weight: 	400;
+		}
+	}
+}
