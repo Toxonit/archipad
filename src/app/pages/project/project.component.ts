@@ -6,7 +6,8 @@ import { UserData }								from '../../providers/user-data';
 import { ParticipantsData }						from '../../providers/participants-data';
 import { MatDialog } 							from '@angular/material/dialog';
 
-import { ProjectParticipant, ParticipantRole, ParticipantInvitationState }	from '../../classes/project-participant';
+import { ProjectParticipantClass }	from '../../classes/project-participant';
+import { ParticipantInvitationState, ProjectParticipant }	from '../../classes/archipad-mock';
 
 
 @Component({
@@ -116,7 +117,7 @@ export class ProjectComponent
 
 		/**************************************
 		 * Role
-		 **************************************/
+		 *************************************
 		for (let role in ParticipantRole)
 		{
 			aRoleValue.push(role);
@@ -159,7 +160,7 @@ export class ProjectComponent
 					this.dataSourceSharedParticipant = new ItemDataSource(this.sharedParticipant);
 				}
 			}
-		});
+		});*/
 	}
 }
 
@@ -179,7 +180,7 @@ export class ItemDataSource extends DataSource<any>
 
 
 	/** Connect function called by the table to retrieve one stream containing the data to render. */
-	connect(): Observable<ProjectParticipant[]>
+	connect(): Observable<ProjectParticipantClass[]>
 	{
 		return of(this.objParticipant);
 	}

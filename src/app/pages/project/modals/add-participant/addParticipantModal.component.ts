@@ -1,8 +1,8 @@
 import { Component, ViewEncapsulation, Inject }				from '@angular/core';
 import { FormControl,ReactiveFormsModule, FormGroup, FormBuilder, Validators }	from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog }         from '@angular/material/dialog';
-import { ParticipantsHttpService }                          from '../../../../services/participantsHttp.service';
-import { ParticipantRole }              					from '../../../../classes/project-participant';
+//import { ParticipantsHttpService }                          from '../../../../services/participantsHttp.service';
+//import { ParticipantRole }              					from '../../../../classes/project-participant';
 import { ParticipantsData } 								from '../../../../providers/participants-data';
 import * as htmlEncode										from 'js-htmlencode';
 
@@ -48,7 +48,7 @@ export class AddParticipantModalComponent
 		
 	constructor(
 		public dialogRef:                   MatDialogRef<AddParticipantModalComponent, any>,
-		private participantsHttpService:    ParticipantsHttpService,
+		// private participantsHttpService:    ParticipantsHttpService,
 		private participantsData:			ParticipantsData,
 
 		private fb: 					FormBuilder,
@@ -123,7 +123,7 @@ export class AddParticipantModalComponent
 		}
 
 		if (this.canValidateModal())
-        {
+        {/*
 			// Récupérer les data du formulaire pour l'ajout
 			this.participantsHttpService.addParticipant(this.data.projectId, this.participantEmail ,this.participantName, this.participantCompany, this.participantJobTitle, ParticipantRole.ADMIN).subscribe((data:any) => 
 			{
@@ -136,7 +136,7 @@ export class AddParticipantModalComponent
 				{
 					this.dialogRef.close(false);
 				}
-			});
+			});*/
 		}
 	}
 

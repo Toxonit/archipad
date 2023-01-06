@@ -21,10 +21,10 @@ import { AddParticipantModalComponent }	from './pages/project/modals/add-partici
 
 import { UserData }					from './providers/user-data';
 import { ParticipantsData }			from './providers/participants-data';
-import { AuthHttpService }			from './services/authHttp.service';
+/*import { AuthHttpService }			from './services/authHttp.service';
 import { HttpService }				from './services/http.service';
 import { ParticipantsHttpService } 	from './services/participantsHttp.service';
-
+*/
 
 export const routes: Routes = 
 [
@@ -63,9 +63,9 @@ export const routes: Routes =
 	[
 		UserData, 
 		ParticipantsData, 
-		AuthHttpService, 
+		/*AuthHttpService, 
 		HttpService,
-		ParticipantsHttpService
+		ParticipantsHttpService*/
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]

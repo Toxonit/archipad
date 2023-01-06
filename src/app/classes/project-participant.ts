@@ -1,9 +1,10 @@
+import { ParticipantRole, ParticipantInvitationState } from "./archipad-mock"
 /**
  * 
  * @export
  * @class User
  */
-export class ProjectParticipant
+export class ProjectParticipantClass
 {
 	private _email:     string						= '';
 	private _name:      string						= '';
@@ -14,19 +15,16 @@ export class ProjectParticipant
 	private _state:     ParticipantInvitationState	= ParticipantInvitationState.PENDING;
 
 
-
 	/**
-	 * 
 	 * @static
 	 * @param {any} jsonObj
 	 * @returns {ProjectParticipant}
 	 * 
 	 * @memberOf User
 	 */
-	public static fromJsonObject(jsonObj: any): ProjectParticipant
+	public static fromJsonObject(jsonObj: any): ProjectParticipantClass
 	{
-
-		let result = new ProjectParticipant();
+		let result = new ProjectParticipantClass();
 
 		result._email       = jsonObj.email		? jsonObj.email		: '';
 		result._name        = jsonObj.name		? jsonObj.name		: '';
@@ -86,18 +84,3 @@ export class ProjectParticipant
 
 }
 
-
-export enum ParticipantInvitationState 
-{
-	PENDING = "pending",
-	ACTIVE  = "active"
-};
-
-export enum ParticipantRole
-{
-    OWNER           = "owner",
-    ADMIN           = "admin",
-    COLLABORATOR    = "collaborator",
-    WORKPACKAGE     = "workpackage",
-    GUEST           = "guest"
-};

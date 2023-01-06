@@ -1,5 +1,5 @@
 import { Injectable } 			from '@angular/core';
-import { ProjectParticipant }	from '../classes/project-participant';
+import { ProjectParticipantClass }	from '../classes/project-participant';
 
 
 @Injectable()
@@ -24,7 +24,7 @@ export class ParticipantsData
 		{
 			for (const participant of participants)
 			{
-				let oParticipant = ProjectParticipant.fromJsonObject(participant);
+				let oParticipant = ProjectParticipantClass.fromJsonObject(participant);
 				this._participants.push(oParticipant);
 			}
 		}
@@ -40,7 +40,7 @@ export class ParticipantsData
 	 * @param psEmail 
 	 * @returns 
 	 */
-	getParticipantByMail(email: string): ProjectParticipant
+	getParticipantByMail(email: string): ProjectParticipantClass
 	{
 		let oReturn = null;
 		if (email)
@@ -64,7 +64,7 @@ export class ParticipantsData
 	 * @param psOwnerMail 
 	 * @returns 
 	 */
-	getParticipantsByProjectID(projectID: number, ownerMail: string): ProjectParticipant[]
+	getParticipantsByProjectID(projectID: number, ownerMail: string): ProjectParticipantClass[]
 	{
 		let aoReturn = [];
 		if (projectID)
@@ -89,7 +89,7 @@ export class ParticipantsData
 	 * @param psOwnerMail 
 	 * @returns 
 	 */
-	getParticipantsByCompany(companyName: string, ownerMail: string): ProjectParticipant[]
+	getParticipantsByCompany(companyName: string, ownerMail: string): ProjectParticipantClass[]
 	{
 		let aoReturn = [];
 		if (companyName)
@@ -113,7 +113,7 @@ export class ParticipantsData
 	 */
 	public addParticipant(jsonParticipant:any)
 	{
-		const newParticipant = ProjectParticipant.fromJsonObject(jsonParticipant);
+		const newParticipant = ProjectParticipantClass.fromJsonObject(jsonParticipant);
 
 		if (newParticipant)
 		{

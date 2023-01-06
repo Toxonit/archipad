@@ -19,9 +19,9 @@ export class AppComponent
 
 	
 	constructor(
-		private http: 	HttpClient,
-		public 	router:	Router,
-		public  userData: UserData) 
+		private http: 		HttpClient,
+		public 	router:		Router,
+		public  userData: 	UserData) 
 	{
 
 		// ---------------------------------------
